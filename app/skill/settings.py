@@ -29,6 +29,14 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# REST framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
     'skill',
+    'skilltree'
 ]
 
 MIDDLEWARE = [
@@ -129,5 +140,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-AUTH_USER_MODEL = "skill.User"
+AUTH_USER_MODEL = "skilltree.User"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
