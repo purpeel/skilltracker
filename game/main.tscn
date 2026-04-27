@@ -1,0 +1,464 @@
+[gd_scene format=4 uid="uid://vm2r78cpcwrp"]
+
+[ext_resource type="Script" uid="uid://dvi3gh1y0chy7" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://cf1177yu1uhwg" path="res://fog_of_war_shader.gdshader" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://ccpmcsiplyj3d" path="res://assets/spice/a5d73397-2cbc-4f55-9746-53bd65de83a2-u2_c820d156-2f1a-4066-95fe-2fa93891843d.png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://clde0pm468pak" path="res://assets/spice/big planet.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dclnfjem783d1" path="res://assets/spice/blue-stars.png" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://d0b5s5nn3dbt2" path="res://assets/spice/asteroid.png" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://ddp0gj4nb762t" path="res://assets/spice/asteroids-new-1.png" id="7_4c57u"]
+[ext_resource type="Texture2D" uid="uid://k7wk4nhq5txc" path="res://assets/spice/asteroid-2.png" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://b8gr8wkmijka4" path="res://assets/spice/planet-2.png" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://c5gvkgbicrq7w" path="res://assets/spice/planet-3.png" id="9_kek77"]
+[ext_resource type="Texture2D" uid="uid://dpdu5c0polp44" path="res://assets/spice/asteroid-new-3.png" id="11_efxa6"]
+[ext_resource type="Texture2D" uid="uid://b01wnrxl1q0ep" path="res://assets/spice/asteroid-new-2.png" id="12_dg77c"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h2yge"]
+frequency = 0.0092
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1bvp3"]
+noise = SubResource("FastNoiseLite_h2yge")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+shader = ExtResource("2_h2yge")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_1bvp3")
+shader_parameter/lines_pos = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/lines_count = 0
+shader_parameter/fog_color = Color(0.4095522, 0.46705246, 0.7955047, 1)
+shader_parameter/glow_color = Color(0.6392157, 0.9254902, 0.85882354, 1)
+shader_parameter/fog_clear_radius = 230.0
+
+[sub_resource type="SystemFont" id="SystemFont_ig7tw"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0xm2m"]
+font = SubResource("SystemFont_ig7tw")
+font_color = Color(0.7357849, 0.5031636, 0.1738765, 1)
+outline_size = 1
+outline_color = Color(0.6023457, 0.31778058, 0.32847372, 1)
+shadow_color = Color(0, 0, 0, 0.41960785)
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_luminance_cap = 14.02
+
+[node name="Main" type="Node2D" unique_id=1167672998]
+script = ExtResource("1_ig7tw")
+metadata/_edit_horizontal_guides_ = [-181.0, 383.0, 662.0, 720.0]
+metadata/_edit_vertical_guides_ = [784.0]
+
+[node name="Tree" type="SkillTree" parent="." unique_id=1038987616]
+
+[node name="Camera2D" type="Camera2D" parent="Tree" unique_id=2048519277]
+
+[node name="FogOfWar" type="ColorRect" parent="Tree" unique_id=1441659243]
+z_index = 5
+material = SubResource("ShaderMaterial_1bvp3")
+offset_left = -10000.0
+offset_top = -10000.0
+offset_right = 10000.0
+offset_bottom = 10000.0
+mouse_filter = 2
+
+[node name="Manager" type="SkillManager" parent="." unique_id=2006450149]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=455171888]
+
+[node name="SkillWindow" type="Panel" parent="UI" unique_id=268463554]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.48900002
+anchor_top = 0.513
+anchor_right = 0.48900002
+anchor_bottom = 0.513
+offset_left = -271.88007
+offset_top = -182.04004
+offset_right = 284.11993
+offset_bottom = 189.95996
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UI/SkillWindow" unique_id=1179340383]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.171
+anchor_top = 0.052
+anchor_right = 0.85300004
+anchor_bottom = 0.21400002
+offset_left = -36.076004
+offset_top = 2.6560154
+offset_right = 19.731964
+offset_bottom = -8.607994
+label_settings = SubResource("LabelSettings_0xm2m")
+
+[node name="Description" type="RichTextLabel" parent="UI/SkillWindow" unique_id=508157638]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.119
+anchor_top = 0.5
+anchor_right = 0.87900007
+anchor_bottom = 0.77400005
+offset_left = 1.8359985
+offset_top = -37.999985
+offset_right = 2.2759705
+offset_bottom = -34.92801
+
+[node name="UpgradeBtn" type="Button" parent="UI/SkillWindow" unique_id=2057832265]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.266
+anchor_top = 0.80100006
+anchor_right = 0.71400005
+anchor_bottom = 0.94400007
+offset_left = 3.104004
+offset_top = 3.0279846
+offset_right = 3.0159607
+offset_bottom = 6.83197
+
+[node name="LvlLabel" type="Label" parent="UI/SkillWindow" unique_id=607067533]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.223
+anchor_right = 0.22500001
+anchor_bottom = 0.344
+offset_left = -4.7920017
+offset_top = 0.04399872
+offset_right = -0.1000061
+offset_bottom = 4.0319977
+
+[node name="CloseBtn" type="Button" parent="UI/SkillWindow" unique_id=1831757892]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.897
+anchor_top = 0.032
+anchor_right = 0.97700006
+anchor_bottom = 0.132
+offset_left = 3.2680054
+offset_top = -3.9040003
+offset_right = 2.7879639
+offset_bottom = -4.104
+
+[node name="ExtraInfo" type="Label" parent="UI/SkillWindow" unique_id=30651713]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.108
+anchor_top = 0.259
+anchor_right = 0.108
+anchor_bottom = 0.259
+offset_left = 90.951996
+offset_top = -11.348
+offset_right = 474.952
+offset_bottom = 38.652
+
+[node name="LvlUpBtn" type="Button" parent="UI/SkillWindow" unique_id=1117737757]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.79300004
+anchor_right = 0.171
+anchor_bottom = 0.952
+offset_left = -0.027999878
+offset_top = 6.003998
+offset_right = -0.07600403
+offset_bottom = -0.14401245
+
+[node name="ProgressSlider" type="HSlider" parent="UI/SkillWindow" unique_id=1677352925]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51100004
+anchor_top = 0.753
+anchor_right = 0.51100004
+anchor_bottom = 0.753
+offset_left = -166.11603
+offset_top = -40.115997
+offset_right = 145.88397
+offset_bottom = 21.884003
+rounded = true
+ticks_on_borders = true
+
+[node name="SliderValLabel" type="Label" parent="UI/SkillWindow" unique_id=1415014169]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 238.0
+offset_right = 532.0
+offset_bottom = 279.0
+
+[node name="Tooltip" type="PanelContainer" parent="UI" unique_id=303713320]
+offset_left = -20.0
+offset_top = -137.0
+offset_right = 65.0
+offset_bottom = -72.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Tooltip" unique_id=1184503900]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="UI/Tooltip/VBoxContainer" unique_id=912370716]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="UI/Tooltip/VBoxContainer" unique_id=848495558]
+layout_mode = 2
+
+[node name="HUD" type="Control" parent="UI" unique_id=1927940353]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopLeft" type="MarginContainer" parent="UI/HUD" unique_id=2114206671]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0109375
+anchor_bottom = 0.048148148
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD/TopLeft" unique_id=925509838]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/TopLeft/VBoxContainer" unique_id=46873853]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="UI/HUD/TopLeft/VBoxContainer/HBoxContainer" unique_id=1504945820]
+layout_mode = 2
+
+[node name="XPBar" type="TextureProgressBar" parent="UI/HUD/TopLeft/VBoxContainer" unique_id=1355988645]
+layout_mode = 2
+
+[node name="XPText" type="Label" parent="UI/HUD/TopLeft/VBoxContainer" unique_id=259698047]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="UI/HUD/TopLeft/VBoxContainer" unique_id=1184326456]
+layout_mode = 2
+text = "НАЗАД"
+
+[node name="TopRight" type="MarginContainer" parent="UI/HUD" unique_id=1235619146]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9890625
+anchor_right = 1.0
+anchor_bottom = 0.039814815
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/TopRight" unique_id=1434321950]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/TopRight/HBoxContainer" unique_id=1496180343]
+layout_mode = 2
+
+[node name="EnergyText" type="Label" parent="UI/HUD/TopRight/HBoxContainer" unique_id=1273932210]
+layout_mode = 2
+
+[node name="CooldownText" type="Label" parent="UI/HUD/TopRight/HBoxContainer" unique_id=1382574587]
+layout_mode = 2
+
+[node name="ToDoPanel" type="Control" parent="UI/HUD" unique_id=1600025549]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="UI/HUD/ToDoPanel" unique_id=258998383]
+layout_mode = 0
+offset_right = 303.0
+offset_bottom = 398.0
+color = Color(0.21885386, 0.08506509, 0.30292454, 1)
+
+[node name="ToggleBtn" type="Button" parent="UI/HUD/ToDoPanel" unique_id=331390715]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.038000003
+anchor_bottom = 0.020000001
+offset_left = 83.0
+offset_top = 7.0
+offset_right = 205.6
+offset_bottom = 30.0
+text = "TODO Свернуть"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/HUD/ToDoPanel" unique_id=844992867]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 46.0
+offset_right = 286.0
+offset_bottom = 384.0
+
+[node name="TaskList" type="VBoxContainer" parent="UI/HUD/ToDoPanel/ScrollContainer" unique_id=39624300]
+layout_mode = 2
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1642411028]
+visible = false
+
+[node name="ParallaxSpice" type="ParallaxLayer" parent="ParallaxBackground" unique_id=704723621]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxSpice" unique_id=1309361227]
+z_index = -100
+offset_left = -606.0
+offset_top = -529.0
+offset_right = 2555.0
+offset_bottom = 1440.0
+mouse_filter = 2
+texture = ExtResource("3_h2yge")
+
+[node name="ParallaxPlanet" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1610852497]
+motion_scale = Vector2(0.45, 0.45)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxPlanet" unique_id=1514641808]
+z_index = -45
+offset_left = -27.0
+offset_top = 414.0
+offset_right = 693.0
+offset_bottom = 1134.0
+mouse_filter = 2
+texture = ExtResource("4_lquwl")
+
+[node name="ParallaxStars" type="ParallaxLayer" parent="ParallaxBackground" unique_id=247731445]
+motion_scale = Vector2(0.25, 0.25)
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxStars" unique_id=353387959]
+z_index = -65
+offset_left = -957.0
+offset_top = 560.0
+offset_right = 952.0
+offset_bottom = 1640.0
+mouse_filter = 2
+texture = ExtResource("5_7mycd")
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxStars" unique_id=599715812]
+z_index = -65
+offset_left = 1030.0
+offset_top = -432.0
+offset_right = 2939.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("5_7mycd")
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxStars" unique_id=289292059]
+z_index = -65
+offset_left = -611.0
+offset_top = -463.0
+offset_right = 1298.0
+offset_bottom = 619.0
+mouse_filter = 2
+texture = ExtResource("5_7mycd")
+
+[node name="TextureRect4" type="TextureRect" parent="ParallaxBackground/ParallaxStars" unique_id=104656244]
+z_index = -65
+offset_left = 802.0
+offset_top = 499.0
+offset_right = 2711.0
+offset_bottom = 1579.0
+mouse_filter = 2
+texture = ExtResource("5_7mycd")
+
+[node name="ParallaxAsteeroids" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1702039707]
+z_index = -20
+motion_scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxAsteeroids" unique_id=239206210]
+z_index = -30
+offset_left = 919.0
+offset_top = -208.0
+offset_right = 2169.0
+offset_bottom = 742.0
+mouse_filter = 2
+texture = ExtResource("7_272bh")
+stretch_mode = 5
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxAsteeroids" unique_id=1798690711]
+z_index = -20
+offset_left = 488.0
+offset_top = 596.0
+offset_right = 2471.0
+offset_bottom = 1938.0
+mouse_filter = 2
+texture = ExtResource("7_272bh")
+
+[node name="TextureRect4" type="TextureRect" parent="ParallaxBackground/ParallaxAsteeroids" unique_id=1788722952]
+z_index = -20
+offset_left = -293.0
+offset_top = -1226.0
+offset_right = 961.0
+offset_bottom = 28.0
+mouse_filter = 2
+texture = ExtResource("7_4c57u")
+expand_mode = 1
+
+[node name="ParallaxSingleAstreroid" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1206595426]
+z_index = -5
+motion_scale = Vector2(1.3, 0.9)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxSingleAstreroid" unique_id=1141103513]
+z_index = -30
+offset_left = 8.0
+offset_top = 131.0
+offset_right = 1526.0
+offset_bottom = 1157.0
+mouse_filter = 2
+texture = ExtResource("6_7mycd")
+flip_v = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2018904124]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1535472677]
+z_index = -55
+offset_left = 933.0
+offset_top = -195.0
+offset_right = 1750.0
+offset_bottom = 507.0
+texture = ExtResource("8_5vw27")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1608716259]
+motion_scale = Vector2(0.15, 0.15)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2" unique_id=503723055]
+z_index = -60
+offset_left = -265.0
+offset_top = -214.0
+offset_right = 247.0
+offset_bottom = 298.0
+mouse_filter = 2
+texture = ExtResource("9_kek77")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=959642911]
+motion_scale = Vector2(0.3, 0.25)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3" unique_id=2106963020]
+offset_left = 950.0
+offset_top = 225.0
+offset_right = 2204.0
+offset_bottom = 1479.0
+texture = ExtResource("11_efxa6")
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3" unique_id=469768068]
+offset_left = -470.0
+offset_top = 121.0
+offset_right = 784.0
+offset_bottom = 1375.0
+texture = ExtResource("12_dg77c")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1016276859]
+environment = SubResource("Environment_0xm2m")

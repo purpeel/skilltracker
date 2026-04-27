@@ -5,6 +5,7 @@
 #include <godot_cpp/variant/dictionary.hpp>
 #include <godot_cpp/variant/array.hpp>
 #include <godot_cpp/classes/json.hpp> 
+#include <godot_cpp/core/class_db.hpp>
 
 #include "skill_node.hpp"
 
@@ -21,15 +22,20 @@ private:
     
     float cooldown_timer_sec;               //оставшееся время отдыха
     const float COOLDOWN_TIME = 1800.0f;    //дефолт время отдыха
-    const int MAX_DAILY_STARTS = 3;         //сколько навыков можно вкачать в день сразу без делея
+    const int MAX_DAILY_STARTS = 17;         //сколько навыков можно вкачать в день сразу без делея
     int instant_starts_left;                //скок осталось вкачать
+
+    Array active_obligations;                //список задач
 
 protected:
     static void _bind_methods();
     
+    
 public:
     SkillManager();
     ~SkillManager();
+
+    Dictionary get_skill_data(const String& id);
 
     void _process(double delta) override;                   //тик каждый кадр
     
@@ -43,6 +49,9 @@ public:
     float get_cooldown_time_left() const;                   //время до конца отдыха 
     void reset_daily_starts();                              //утром сброс бонусов
     Array parse_user_tree(const String& json_string);       //парсим json возращаем array из skillnode* 
+
+    Array get_all_obligations() { return active_obligations; }
+    void add_obligation(SkillNode* node);
 };
 
 

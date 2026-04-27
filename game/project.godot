@@ -11,8 +11,20 @@ config_version=5
 [application]
 
 config/name="skill tracker"
+run/main_scene="uid://bwm5370gibncn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Profile="*uid://dwqhdbss23yyg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [physics]
 

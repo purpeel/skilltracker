@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bwm5370gibncn"]
+
+[ext_resource type="Script" uid="uid://cxm3dairearwf" path="res://login.gd" id="1_cau7c"]
+
+[sub_resource type="FontVariation" id="FontVariation_3n56f"]
+spacing_glyph = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_xlo4h"]
+line_spacing = 10.0
+font = SubResource("FontVariation_3n56f")
+font_size = 50
+
+[node name="LoginScreen" type="Control" unique_id=1902905734]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cau7c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1101615847]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09905874, 0.042667672, 0.27897322, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2067938273]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.5
+offset_top = -250.0
+offset_right = 310.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1261826250]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Регистрация
+"
+label_settings = SubResource("LabelSettings_xlo4h")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="NickInput" type="LineEdit" parent="VBoxContainer" unique_id=572810041]
+layout_mode = 2
+placeholder_text = "ВАШ НИКНЕЙМ"
+alignment = 1
+
+[node name="EmailInput" type="LineEdit" parent="VBoxContainer" unique_id=1462338160]
+layout_mode = 2
+placeholder_text = "ВАШ E-mal"
+alignment = 1
+editable = false
+
+[node name="PasswordInput" type="LineEdit" parent="VBoxContainer" unique_id=1956029332]
+layout_mode = 2
+placeholder_text = "ПАРОЛЬ"
+alignment = 1
+secret = true
+
+[node name="LoginBtn" type="Button" parent="VBoxContainer" unique_id=410795854]
+layout_mode = 2
+text = "	Войти в трекер"

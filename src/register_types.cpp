@@ -1,6 +1,7 @@
 #include "register_types.hpp"
 #include "skill_node.hpp"
 #include "skill_tree.hpp"
+#include "player_profile.hpp"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -16,6 +17,7 @@ void initialize_skill_tracker_module(ModuleInitializationLevel p_level) {
     ClassDB::register_class<SkillNode>();
     ClassDB::register_class<SkillTree>();
     ClassDB::register_class<SkillManager>();
+    ClassDB::register_class<PlayerProfile>();
 }
 
 void uninitialize_skill_tracker_module(ModuleInitializationLevel p_level) {
