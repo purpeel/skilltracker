@@ -34,7 +34,11 @@ ALLOWED_HOSTS = []
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
 }
 
 # Application definition
@@ -49,10 +53,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'skill',
-    'skilltree'
+    'skilltree',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,6 +87,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'skill.wsgi.application'
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+]
+CORS_ALLOW_CREDENTIALS = True
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases

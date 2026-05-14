@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug Login</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; }
+        .login-card { border: 1px solid #ccc; padding: 20px; border-radius: 8px; width: 300px; }
+        input { width: 100%; margin-bottom: 10px; padding: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; cursor: pointer; background: #007bff; color: white; border: none; }
+        #response { margin-top: 15px; font-size: 0.9em; white-space: pre-wrap; background: #f4f4f4; padding: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <h3>Вход (Debug API)</h3>
+    <input type="text" id="username" placeholder="Логин">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="doLogin()">Войти</button>
+    <div id="response"></div>
+</div>
+
+<script>
+async function doLogin() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    const resDiv = document.getElementById('response');
+
+    try {
+        const response = await fetch('/login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: user,
+                password: pass
+            })
+        });
+
+        const data = await response.json();
+        resDiv.innerText = `Статус: ${response.status}\nОтвет: ${JSON.stringify(data, null, 2)}`;
+
+        if (response.ok) {
+            resDiv.style.color = "green";
+        } else {
+            resDiv.style.color = "red";
+        }
+    } catch (error) {
+        resDiv.innerText = "Ошибка сети: " + error;
+    }
+}
+</script>
+
+</body>
+</html>

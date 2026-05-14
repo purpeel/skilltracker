@@ -46,6 +46,22 @@ class Tree( models.Model ):
             self.verbose_title = preset_title
         
         super().save(*args, **kwargs)
+        
+
+class ActionLog( models.Model ):
+    profile = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='action_logs')
+    node = models.ForeignKey("Node", on_delete=models.CASCADE, related_name='action_logs')
+    
+    progress_added = models.IntegerField(
+        default=0,
+        validators=[
+            MinValueValidator(0),
+            MaxValueValidator(1000000000),
+        ],
+        blank=False,
+        null=False        
+    )
+    submitted_at = models.DateField(auto_now_add=True)
 
 
 class Node( models.Model ):
