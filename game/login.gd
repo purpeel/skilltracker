@@ -62,8 +62,8 @@ func _shake_error():
 	tw.tween_property(login_btn, "position:x", login_btn.position.x - 10, 0.05)
 	tw.tween_property(login_btn, "position:x", login_btn.position.x, 0.05)
 	
-	if nick_input.text == "": nick_input.placeholder_text = "ЗАПОЛНИТЕ ВСЕ ПОЛЯ!"
-	if pwd_input.text == "": pwd_input.placeholder_text = "ПАРОЛЬ ОБЯЗАТЕЛЕН!"
+	if nick_input.text == " ": nick_input.placeholder_text = "ЗАПОЛНИТЕ ВСЕ ПОЛЯ!"
+	if pwd_input.text == " ": pwd_input.placeholder_text = "ПАРОЛЬ ОБЯЗАТЕЛЕН!"
 
 func _on_login_completed(_result, response_code, _headers, body):
 	login_btn.disabled = false

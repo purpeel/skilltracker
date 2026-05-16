@@ -282,12 +282,12 @@ func create_stat_todo_item(task, is_done):
 	btn.add_theme_stylebox_override("focus", sb)
 	
 	var prefix = ""
-	if task["cd_type"] == 1: prefix = "☀️[ДЕНЬ] "
-	elif task["cd_type"] == 2: prefix = "📅 [НЕДЕЛЯ] "
-	elif task["cd_type"] == 3: prefix = "🌙 [МЕСЯЦ] "
+	if task["cd_type"] == 1: prefix = "[ЕЖЕДНЕВНО] "
+	elif task["cd_type"] == 2: prefix = "[ЕЖЕНЕДЕЛЬНО] "
+	elif task["cd_type"] == 3: prefix = "[ЕЖЕМЕСЯЧНО] "
 	
 	var progress_txt = str(task["current"]) + " / " + str(task["target"])
-	if task["task_type"] == 1: progress_txt = "⏳ Таймер"
+	if task["task_type"] == 1: progress_txt =  "Таймер"
 	
 	btn.text = "   " + prefix + task["name"] + "  (" + progress_txt + ")"
 	
