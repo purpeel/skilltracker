@@ -78,7 +78,7 @@ void SkillTree::reveal_successors(SkillNode* p_node) {
 
         for (int k = 0; k < reqs.size(); k++) {
             SkillNode* parent = find_skill_node(reqs[k]);
-            if (!parent || parent->getState() != SkillNode::STATE_ACTIVE) {
+            if (!parent || parent->getState() < SkillNode::STATE_ACTIVE) {
                 all_done = false;
                 break;
             }

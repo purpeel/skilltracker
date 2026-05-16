@@ -26,7 +26,7 @@ private:
     int instant_starts_left;                //скок осталось вкачать
 
     Array active_obligations;                //список задач
-
+    Array action_history;                    //история выполненых задач
 protected:
     static void _bind_methods();
     
@@ -52,6 +52,11 @@ public:
 
     Array get_all_obligations() { return active_obligations; }
     void add_obligation(SkillNode* node);
+
+    int calculate_current_streak() const;
+
+    void log_action(const String& skill_id, int progress_added);
+    Array get_action_history() const { return action_history; }
 };
 
 

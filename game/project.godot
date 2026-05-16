@@ -17,7 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Profile="*uid://dwqhdbss23yyg"
+GM="*uid://c532pg6notpgr"
+Net="*uid://b6q8y80dwnuqo"
+Profile="*uid://bwvfrwdn3nruj"
 
 [display]
 
@@ -25,6 +27,11 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[gui]
+
+theme/default_font_antialiasing=2
+theme/custom_font="uid://c471kb8a1ixdj"
 
 [physics]
 

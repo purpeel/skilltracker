@@ -1,34 +1,41 @@
-extends Control
+extends Node
 
-@onready var content_container = $VBoxContainer/MainContent
+@onready var content_container = $MainContent
 
-@onready var btn_tree = $VBoxContainer/NavBar/HBoxContainer/BtnTree
-@onready var btn_stats = $VBoxContainer/NavBar/HBoxContainer/BtnStats
-@onready var btn_profile = $VBoxContainer/NavBar/HBoxContainer/BtnProfile
+@onready var btn_stats = $MainContent/ShellUI/NavBackground/TopNav/BtnStats
+@onready var btn_tree = $MainContent/ShellUI/NavBackground/TopNav/BtnTree
+@onready var btn_profile = $MainContent/ShellUI/NavBackground/TopNav/BtnProfile
 
-# Обязательно проверь, чтобы пути к файлам сцен были правильными!
+var scene_stats = preload("res://stats.tscn")
 var scene_tree = preload("res://main.tscn")
-var scene_stats = preload("res://stats.tscn") # Скоро создадим
-var scene_profile = preload("res://profile.tscn") # Скоро создадим
+var scene_profile = preload("res://profile.tscn")
 
 var current_scene_node = null
 
 func _ready():
-	# Подключаем нижние кнопки
-	btn_tree.pressed.connect(func(): load_tab(scene_tree))
-	btn_stats.pressed.connect(func(): load_tab(scene_stats))
-	btn_profile.pressed.connect(func(): load_tab(scene_profile))
+	btn_stats.pressed.connect(func(): load_tab(scene_stats, btn_stats))
+	btn_tree.pressed.connect(func(): load_tab(scene_tree, btn_tree))
+	btn_profile.pressed.connect(func(): load_tab(scene_profile, btn_profile))
 	
-	# По умолчанию при старте открываем вкладку с Деревом!
-	load_tab(scene_tree)
+	load_tab(scene_tree, btn_tree)
 
-func load_tab(scene_resource):
-	# 1. Если там уже открыта какая-то вкладка, удаляем её из памяти
+func load_tab(scene_resource, active_btn):
+	var dim_color = Color(0.5, 0.5, 0.7, 0.7)
+	btn_stats.modulate = dim_color
+	btn_tree.modulate = dim_color
+	btn_profile.modulate = dim_color
+	
+	active_btn.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	
 	if current_scene_node != null:
 		current_scene_node.queue_free()
 		
-	# 2. Создаем новую вкладку из файла сцены (например, main.tscn)
 	current_scene_node = scene_resource.instantiate()
-	
-	# 3. Добавляем её в контейнер (она займет 90% экрана над меню)
 	content_container.add_child(current_scene_node)
+
+	if current_scene_node is Control:
+		current_scene_node.set_anchors_preset(Control.PRESET_FULL_RECT)
+		current_scene_node.offset_left = 0
+		current_scene_node.offset_top = 0
+		current_scene_node.offset_right = 0
+		current_scene_node.offset_bottom = 0

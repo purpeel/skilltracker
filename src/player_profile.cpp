@@ -19,6 +19,9 @@ void PlayerProfile::_bind_methods() {
 
     ClassDB::bind_method(D_METHOD("add_xp", "amount"), &PlayerProfile::add_xp);
 
+    ClassDB::bind_method(D_METHOD("set_avatar_id", "id"), &PlayerProfile::set_avatar_id);
+    ClassDB::bind_method(D_METHOD("get_avatar_id"), &PlayerProfile::get_avatar_id);
+    
     ADD_SIGNAL(MethodInfo("profile_updated"));
     ADD_SIGNAL(MethodInfo("level_up_achieved", PropertyInfo(Variant::INT, "new_level")));
 
@@ -29,26 +32,27 @@ PlayerProfile::PlayerProfile() {
     max_XP= 100;
     current_level = 1;
     player_name = "Player";
+    avatar_id = 0;
 
 }
 
 PlayerProfile::~PlayerProfile() {}
 
 void PlayerProfile::add_xp(int amount) {
+    if (amount <= 0) {
+        return;
+    }
+    
     current_XP += amount;
     bool leveled_up = false;
 
-    if (current_XP >= max_XP){
-        current_level++;
+    while (current_XP >= max_XP) {
         current_XP -= max_XP;
-        max_XP = (int)(max_XP*1.5);
-        leveled_up = true;
-    }
-
-    emit_signal("profile_updated");
-    
-    if (leveled_up) {
-        UtilityFunctions::print("GLOBAL LEVEL UP! Now level: ", current_level);
+        current_level++;
+        max_XP = (int)(max_XP * 1.5);
         emit_signal("level_up_achieved", current_level);
     }
+        
+    emit_signal("profile_updated");
+    
 }

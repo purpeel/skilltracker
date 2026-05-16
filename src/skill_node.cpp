@@ -234,9 +234,9 @@ void SkillNode::_notification(int p_what) {
         if (!shadow_sprite) {
             shadow_sprite = memnew(Sprite2D);
             add_child(shadow_sprite);
-            shadow_sprite->set_modulate(Color(0, 0, 0, 0.7)); 
-            shadow_sprite->set_position(Vector2(-12, -12)); 
-            shadow_sprite->set_z_index(-15); 
+            shadow_sprite->set_modulate(Color(0, 0, 0, 0.5)); 
+            shadow_sprite->set_position(Vector2(6, 6)); 
+            shadow_sprite->set_draw_behind_parent(true); 
         }
 
         if (!node_light) {
@@ -315,7 +315,8 @@ void SkillNode::updateVisuals(bool animate) {
 
     icon_sprite->set_texture(current_tex);
     border_sprite->set_texture(tex_border);
-    shadow_sprite->set_texture(tex_border); 
+    shadow_sprite->set_texture(tex_flash); 
+    shadow_sprite->set_scale(Vector2(0.4f, 0.4f));
 
     Color rarity_color;      
     Color flash_color;       

@@ -1,46 +1,107 @@
 [gd_scene format=3 uid="uid://dfq1qjkbr2ae0"]
 
 [ext_resource type="Script" uid="uid://cobb0vm4527wx" path="res://shell.gd" id="1_6fuaf"]
+[ext_resource type="Texture2D" uid="uid://b6t8w78nvkqco" path="res://assets/bg/st1.png" id="2_gtku1"]
+[ext_resource type="Texture2D" uid="uid://ra86arhyft3x" path="res://assets/bg/st0.png" id="3_8jqs0"]
+[ext_resource type="Texture2D" uid="uid://d3e2hosop1jq5" path="res://assets/bg/st2.png" id="4_couhc"]
+[ext_resource type="Texture2D" uid="uid://i32t1dlpwnsl" path="res://assets/bg/s1.png" id="5_47kus"]
+[ext_resource type="Texture2D" uid="uid://cdpyrlu5yoxx" path="res://assets/bg/s2.png" id="6_jrvje"]
+[ext_resource type="Texture2D" uid="uid://c8jrfoxf7lrpa" path="res://assets/bg/s0.png" id="7_2xjkh"]
+[ext_resource type="Texture2D" uid="uid://bmk5h8fqshklk" path="res://assets/bg/p1.png" id="8_ukv3d"]
+[ext_resource type="Texture2D" uid="uid://dpadsa6be7ded" path="res://assets/bg/p2.png" id="9_aep7h"]
+[ext_resource type="Texture2D" uid="uid://br8a75qi50yxa" path="res://assets/bg/p0.png" id="10_2isqw"]
 
-[node name="AppShell" type="Control" unique_id=521173896]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtku1"]
+bg_color = Color(0.34901962, 0.20784314, 0.72156864, 0.33333334)
+border_width_left = 4
+border_width_top = 1
+border_width_right = 4
+border_width_bottom = 2
+border_color = Color(0.8392157, 0.6431373, 0.92156863, 0.5411765)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 20
+shadow_color = Color(0.15686275, 0.047058824, 0.22745098, 0.25882354)
+shadow_size = 20
+shadow_offset = Vector2(0, 7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jqs0"]
+bg_color = Color(0.49411765, 0.37254903, 0.5411765, 0)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.78039217, 0.5176471, 0.88235295, 0.21176471)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="AppShell" type="Node" unique_id=1986945923]
+script = ExtResource("1_6fuaf")
+
+[node name="MainContent" type="Control" parent="." unique_id=128355950]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6fuaf")
+mouse_filter = 2
+metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=644574928]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ShellUI" type="CanvasLayer" parent="MainContent" unique_id=1945841582]
+layer = 120
 
-[node name="MainContent" type="Control" parent="VBoxContainer" unique_id=713112370]
-layout_mode = 2
+[node name="NavBackground" type="PanelContainer" parent="MainContent/ShellUI" unique_id=431819057]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.577
+offset_left = -122.0
+offset_top = 10.0
+offset_right = -0.8400879
+offset_bottom = 93.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gtku1")
 
-[node name="NavBar" type="ColorRect" parent="VBoxContainer" unique_id=1062591225]
-custom_minimum_size = Vector2(0, 80)
+[node name="TopNav" type="HBoxContainer" parent="MainContent/ShellUI/NavBackground" unique_id=328081433]
 layout_mode = 2
 size_flags_horizontal = 4
-color = Color(0.26293245, 0.26293245, 0.26293245, 1)
+size_flags_vertical = 0
+theme_override_constants/separation = 14
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/NavBar" unique_id=328081433]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BtnTree" type="Button" parent="VBoxContainer/NavBar/HBoxContainer" unique_id=859952872]
+[node name="BtnTree" type="TextureButton" parent="MainContent/ShellUI/NavBackground/TopNav" unique_id=1437265951]
 layout_mode = 2
+texture_normal = ExtResource("2_gtku1")
+texture_pressed = ExtResource("3_8jqs0")
+texture_hover = ExtResource("4_couhc")
+flip_v = true
 
-[node name="BtnStats" type="Button" parent="VBoxContainer/NavBar/HBoxContainer" unique_id=149379311]
+[node name="VSeparator" type="VSeparator" parent="MainContent/ShellUI/NavBackground/TopNav" unique_id=908492949]
+visible = false
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/separator = SubResource("StyleBoxFlat_8jqs0")
 
-[node name="BtnProfile" type="Button" parent="VBoxContainer/NavBar/HBoxContainer" unique_id=1794552491]
+[node name="BtnStats" type="TextureButton" parent="MainContent/ShellUI/NavBackground/TopNav" unique_id=439678568]
 layout_mode = 2
+texture_normal = ExtResource("5_47kus")
+texture_pressed = ExtResource("7_2xjkh")
+texture_hover = ExtResource("6_jrvje")
+
+[node name="VSeparator2" type="VSeparator" parent="MainContent/ShellUI/NavBackground/TopNav" unique_id=4855439]
+visible = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/separator = SubResource("StyleBoxFlat_8jqs0")
+
+[node name="BtnProfile" type="TextureButton" parent="MainContent/ShellUI/NavBackground/TopNav" unique_id=2071197877]
+layout_mode = 2
+texture_normal = ExtResource("8_ukv3d")
+texture_pressed = ExtResource("10_2isqw")
+texture_hover = ExtResource("9_aep7h")

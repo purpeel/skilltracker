@@ -16,6 +16,7 @@ private:
     int current_XP;
     int max_XP;
     int current_level;
+    int avatar_id;
     String player_name;
 
 public:
@@ -34,6 +35,9 @@ public:
     int get_level() const { return current_level; }
     void set_level(int cur_lvl) { current_level = cur_lvl; }
 
+    int get_avatar_id() const { return avatar_id; }
+    void set_avatar_id(int p_id) { avatar_id = p_id; emit_signal("profile_updated"); }
+    
     void add_xp(int amount);
 };
 

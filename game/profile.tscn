@@ -1,9 +1,413 @@
 [gd_scene format=3 uid="uid://dkrcl1mpkbsko"]
 
-[node name="Control" type="Control" unique_id=1072860945]
+[ext_resource type="Script" uid="uid://dwqhdbss23yyg" path="res://profile_ui.gd" id="1_k2f8d"]
+[ext_resource type="Texture2D" uid="uid://dhm8n1ldqr331" path="res://assets/bg/bg-f.png" id="2_k2f8d"]
+[ext_resource type="Texture2D" uid="uid://t4ggu0l0grai" path="res://assets/bg/avatar.png" id="3_r2xaa"]
+[ext_resource type="Texture2D" uid="uid://bwbappprc3gt2" path="res://assets/bg/settings.png" id="4_o4dpx"]
+[ext_resource type="FontFile" uid="uid://dke6bav3edcvi" path="res://assets/icons/18959.ttf" id="4_r2xaa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4dpx"]
+bg_color = Color(0.33333334, 0.6117647, 0.92941177, 0.16470589)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8132751, 0.7097003, 0.939883, 0.88235295)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+corner_detail = 12
+shadow_color = Color(0.8352941, 0.52156866, 0.8117647, 0.13725491)
+shadow_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_altqp"]
+bg_color = Color(0.26920015, 0.23240536, 0.44464508, 0.7411765)
+border_width_left = 4
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7529412, 0.64705884, 0.8862745, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yghs0"]
+bg_color = Color(0.53104043, 0.477359, 0.7679049, 0.5372549)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7529412, 0.64705884, 0.8862745, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.2, 0.16862746, 0.39607844, 0.84313726)
+shadow_size = 7
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kn0d4"]
+bg_color = Color(0.61960787, 0.16078432, 0.24313726, 0.69803923)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.39607844, 0.007843138, 0.19607843, 0.8156863)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 14
+shadow_color = Color(0.16979107, 0.13117775, 0.3312493, 1)
+shadow_size = 8
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dasb5"]
+bg_color = Color(0.24313726, 0.49803922, 0.23529412, 0.69411767)
+border_width_left = 4
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.16862746, 0.2627451, 0.09019608, 0.91764706)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcuo4"]
+bg_color = Color(0.33333334, 0.6117647, 0.92941177, 0.16470589)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8117647, 0.70980394, 0.9411765, 0.88235295)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+corner_detail = 12
+shadow_color = Color(0.8352941, 0.52156866, 0.8117647, 0.13725491)
+shadow_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b1mu"]
+bg_color = Color(0.90588236, 0.8235294, 0.9843137, 0.09019608)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7490196, 0.64705884, 0.8862745, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khxjx"]
+bg_color = Color(0.33333334, 0.6117647, 0.92941177, 0.16470589)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8117647, 0.70980394, 0.9411765, 0.88235295)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+corner_detail = 12
+shadow_color = Color(0.8352941, 0.52156866, 0.8117647, 0.13725491)
+shadow_size = 50
+
+[node name="ProfileScreen" type="Control" unique_id=1072860945]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_k2f8d")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1538322232]
+layout_mode = 0
+offset_left = -168.0
+offset_top = -128.0
+offset_right = 2093.0
+offset_bottom = 1235.0
+texture = ExtResource("2_k2f8d")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=927639632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="MainSplit" type="HBoxContainer" parent="MarginContainer" unique_id=740514900]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainSplit" unique_id=552001852]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
+
+[node name="PlayerCard" type="PanelContainer" parent="MarginContainer/MainSplit/VBoxContainer" unique_id=1796788913]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.09
+theme_override_styles/panel = SubResource("StyleBoxFlat_o4dpx")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard" unique_id=51542455]
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer" unique_id=76467748]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="TopBar" type="MarginContainer" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=2022409221]
+layout_mode = 2
+
+[node name="Avatar" type="TextureButton" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer/TopBar" unique_id=524388216]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 1.5
+texture_normal = ExtResource("3_r2xaa")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control3" type="Control" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer/TopBar" unique_id=507133746]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 0.1
+
+[node name="SettingsBtn" type="TextureButton" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer/TopBar/Control3" unique_id=1331505280]
+layout_mode = 0
+offset_left = -67.0
+offset_top = -1.0
+offset_right = -3.0
+offset_bottom = 65.0
+texture_normal = ExtResource("4_o4dpx")
+
+[node name="Nickname" type="Label" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=645894904]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8682931, 0.7746883, 0.9097831, 1)
+theme_override_colors/font_shadow_color = Color(0.16572657, 0.13487333, 0.33609712, 0.8901961)
+theme_override_colors/font_outline_color = Color(0.16862746, 0.09803922, 0.3764706, 0.9019608)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 14
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 55
+horizontal_alignment = 1
+
+[node name="NickEdit" type="LineEdit" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=985011217]
+visible = false
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9490196, 0.8117647, 0.96862745, 1)
+theme_override_colors/font_outline_color = Color(0.14780119, 0.08536696, 0.32795116, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_altqp")
+alignment = 1
+
+[node name="Status" type="Label" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=2015034055]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9281298, 0.6634321, 0.9594328, 1)
+theme_override_colors/font_shadow_color = Color(0.17254902, 0.14117648, 0.34901962, 0.8509804)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 22
+text = "Начинающий пользователь"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=71862312]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LvlLabel" type="Label" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=298298382]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96244663, 0.8213184, 0.9776538, 1)
+theme_override_colors/font_shadow_color = Color(0.20392157, 0.16470589, 0.4, 0.78431374)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 25
+text = "Уровень 4"
+horizontal_alignment = 1
+
+[node name="XPBar" type="ProgressBar" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=1235095155]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78039217, 0.85882354, 0.99215686, 1)
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_styles/background = SubResource("StyleBoxFlat_yghs0")
+
+[node name="XPText" type="Label" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=457550836]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7812797, 0.8593461, 0.98898107, 1)
+theme_override_colors/font_shadow_color = Color(0.19215687, 0.15294118, 0.38039216, 0.89411765)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 20
+text = "100/200 XP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=108153673]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogoutBtn" type="Button" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=1448798964]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_kn0d4")
+text = "Выйти из аккаунта"
+
+[node name="SaveBtn" type="Button" parent="MarginContainer/MainSplit/VBoxContainer/PlayerCard/MarginContainer/VBoxContainer" unique_id=1057152667]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_dasb5")
+text = "Сохранить изменения"
+
+[node name="SummaryCard" type="PanelContainer" parent="MarginContainer/MainSplit/VBoxContainer" unique_id=276777304]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jcuo4")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/VBoxContainer/SummaryCard" unique_id=295673402]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/VBoxContainer/SummaryCard/MarginContainer" unique_id=1846334532]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SumTitleLb" type="Label" parent="MarginContainer/MainSplit/VBoxContainer/SummaryCard/MarginContainer/VBoxContainer" unique_id=309344734]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94958633, 0.75968266, 0.97080344, 1)
+theme_override_colors/font_shadow_color = Color(0.19215687, 0.11764706, 0.4117647, 0.7529412)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 50
+text = "МОЯ СВОДКА"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/MainSplit/VBoxContainer/SummaryCard/MarginContainer/VBoxContainer" unique_id=139780574]
+modulate = Color(0.7529412, 0.64705884, 0.8901961, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_4b1mu")
+
+[node name="StreakLb" type="Label" parent="MarginContainer/MainSplit/VBoxContainer/SummaryCard/MarginContainer/VBoxContainer" unique_id=4784467]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.8012948, 0.72807527, 0.94601136, 1)
+theme_override_colors/font_shadow_color = Color(0.7713584, 0.2048878, 0.21944743, 0.7529412)
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 35
+text = "Серия: 3 дня"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainSplit/VBoxContainer/SummaryCard/MarginContainer/VBoxContainer" unique_id=383818706]
+modulate = Color(0.7529412, 0.64705884, 0.8901961, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_4b1mu")
+
+[node name="SumTasksLb" type="Label" parent="MarginContainer/MainSplit/VBoxContainer/SummaryCard/MarginContainer/VBoxContainer" unique_id=718583976]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.7607843, 0.6901961, 0.9137255, 1)
+theme_override_colors/font_shadow_color = Color(0.13345012, 0.4800744, 0.33619776, 0.8745098)
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 35
+text = "Выполнено задач: 15"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MainSplit/VBoxContainer/SummaryCard/MarginContainer/VBoxContainer" unique_id=2130519665]
+modulate = Color(0.7529412, 0.64705884, 0.8901961, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_4b1mu")
+
+[node name="Label2" type="Label" parent="MarginContainer/MainSplit/VBoxContainer/SummaryCard/MarginContainer/VBoxContainer" unique_id=2087604995]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7288031, 0.6840946, 0.87575656, 1)
+theme_override_colors/font_shadow_color = Color(0.61037606, 0.4917199, 0.05032651, 0.61960787)
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 35
+text = "Лучший навык: чтение
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AchievCard" type="PanelContainer" parent="MarginContainer/MainSplit" unique_id=573379638]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+theme_override_styles/panel = SubResource("StyleBoxFlat_khxjx")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/AchievCard" unique_id=2048006888]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/AchievCard/MarginContainer" unique_id=820844166]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="MarginContainer/MainSplit/AchievCard/MarginContainer/VBoxContainer" unique_id=2033420153]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9625202, 0.82459027, 0.9792419, 1)
+theme_override_colors/font_shadow_color = Color(0.21960784, 0.16862746, 0.4117647, 0.6784314)
+theme_override_colors/font_outline_color = Color(0.1882353, 0.11372549, 0.4117647, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("4_r2xaa")
+theme_override_font_sizes/font_size = 40
+text = "МОИ ДОСТИЖЕНИЯ"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainSplit/AchievCard/MarginContainer/VBoxContainer" unique_id=128387267]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AchievGrid" type="GridContainer" parent="MarginContainer/MainSplit/AchievCard/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1122920336]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
