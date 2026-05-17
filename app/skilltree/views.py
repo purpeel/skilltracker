@@ -5,9 +5,9 @@ from rest_framework import status
 from .models import Tree, Node, ActionLog
 from .serializers import TreeSerializer, NodeSerializer, RegistrySerializer
 from .services import registry_service, login_service, action_service
-
-# DEBUG
-from django.shortcuts import render
+import os
+import json
+from django.conf import settings
 
 
 @api_view(['GET'])
@@ -30,14 +30,11 @@ def habits_view(request):
     return Response( serializer.data )
 
 
-@api_view(['POST', 'GET'])
+@api_view(['POST'])
 @permission_classes([AllowAny])
 def login_view(request):
-    if request.method == 'GET':
-        return render(request, 'login.html')
     
-    if request.method == 'POST':
-        return login_service(request.data)
+    return login_service(request.data)
         
 
 @api_view(['GET'])
@@ -64,9 +61,24 @@ def action_view(request):
     return action_service( request.user, request.data )
 
 
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 @permission_classes([AllowAny])
 def register_view(request):
     serializer = RegistrySerializer(data = request.data)
     
     return registry_service(serializer)
+
+
+CATALOG_FILE = os.path.join( settings.BASE_DIR, 'skill', 'catalog.json' )
+
+try:
+    with open( CATALOG_FILE, 'r', encoding='utf-8') as f:
+        CATALOG_DATA = json.load(f)
+except Exception as ex:
+    CATALOG_DATA = []
+    print(f"Catalog loading error: {ex}")
+    
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def catalog_view(request):
+    return Response( CATALOG_DATA, status=status.HTTP_200_OK )

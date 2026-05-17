@@ -32,6 +32,7 @@ services:
     user: "${UID:-1000}:${GID:-1000}"
     volumes:
       - ./app:/app
+      - ./app/skilltree/migrations:/app/skilltree/migrations
     working_dir: /app
     ports:
       - "8000:8000"
@@ -46,6 +47,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./game/WebBuild:/usr/share/nginx/html
+      - ./game/nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
 secrets:
   db_password:

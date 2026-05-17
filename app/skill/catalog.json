@@ -1,0 +1,29 @@
+[
+    {"id": 301, "node_name": "Чтение: 10 страниц", "node_info": "Прочитай 10 страниц любой книги.", "node_rarity": 0, "area": 0, "cooldown": "D", "base_progress": 10, "xp_reward": 20},
+    {"id": 302, "node_name": "Скорочтение", "node_info": "Тренировка фокуса и подавления субвокализации.", "node_rarity": 1, "area": 0, "cooldown": "D", "duration_sec": 600, "xp_reward": 50},
+    {"id": 303, "node_name": "Проглотить главу", "node_info": "Прочитать целую главу художественной книги.", "node_rarity": 0, "area": 0, "cooldown": "D", "base_progress": 1, "xp_reward": 30},
+    {"id": 304, "node_name": "Книжный червь", "node_info": "Марафон чтения научно-популярной литературы.", "node_rarity": 2, "area": 0, "cooldown": "W", "duration_sec": 3600, "xp_reward": 150},
+    {"id": 305, "node_name": "Анализ материала", "node_info": "Выписать 5 ключевых мыслей из прочитанного.", "node_rarity": 1, "area": 0, "cooldown": "D", "base_progress": 5, "xp_reward": 40},
+
+    {"id": 201, "node_name": "Питьевой режим", "node_info": "Выпить 2 стакана чистой воды утром.", "node_rarity": 0, "area": 1, "cooldown": "D", "base_progress": 2, "xp_reward": 15},
+    {"id": 202, "node_name": "Отжимания", "node_info": "Классические отжимания от пола.", "node_rarity": 0, "area": 1, "cooldown": "D", "base_progress": 20, "xp_reward": 30},
+    {"id": 203, "node_name": "Пробежка", "node_info": "Кардио-тренировка на свежем воздухе.", "node_rarity": 1, "area": 1, "cooldown": "W", "duration_sec": 1800, "xp_reward": 100},
+    {"id": 204, "node_name": "Утренняя планка", "node_info": "Стойка в классической планке на локтях.", "node_rarity": 0, "area": 1, "cooldown": "D", "duration_sec": 120, "xp_reward": 25},
+    {"id": 205, "node_name": "День растяжки", "node_info": "Комплексная растяжка всего тела.", "node_rarity": 1, "area": 1, "cooldown": "W", "duration_sec": 1200, "xp_reward": 75},
+    {"id": 206, "node_name": "Адская тренировка", "node_info": "Выполнить полноценный силовой воркаут.", "node_rarity": 3, "area": 1, "cooldown": "W", "base_progress": 1, "xp_reward": 250},
+
+    {"id": 401, "node_name": "10 новых слов", "node_info": "Изучить и добавить 10 новых слов в личный словарь.", "node_rarity": 0, "area": 2, "cooldown": "D", "base_progress": 10, "xp_reward": 25},
+    {"id": 402, "node_name": "Аудирование", "node_info": "Слушать подкаст или смотреть видео на целевом языке.", "node_rarity": 0, "area": 2, "cooldown": "D", "duration_sec": 900, "xp_reward": 35},
+    {"id": 403, "node_name": "Языковая практика", "node_info": "Поговорить с носителем или написать эссе.", "node_rarity": 2, "area": 2, "cooldown": "W", "duration_sec": 1800, "xp_reward": 120},
+    {"id": 404, "node_name": "Повторение карточек", "node_info": "Повторить старые слова по системе Anki.", "node_rarity": 0, "area": 2, "cooldown": "D", "base_progress": 25, "xp_reward": 20},
+    {"id": 405, "node_name": "Грамматический спринт", "node_info": "Разобрать и закрепить сложное правило.", "node_rarity": 1, "area": 2, "cooldown": "D", "base_progress": 3, "xp_reward": 60},
+
+    {"id": 501, "node_name": "Скетчинг", "node_info": "Быстрые наброски окружающих предметов.", "node_rarity": 1, "area": 3, "cooldown": "D", "duration_sec": 600, "xp_reward": 45},
+    {"id": 502, "node_name": "Генерация идей", "node_info": "Устроить брейншторм и записать 10 диких идей.", "node_rarity": 0, "area": 3, "cooldown": "D", "base_progress": 10, "xp_reward": 30},
+    {"id": 503, "node_name": "Музыкальная сессия", "node_info": "Практика игры на музыкальном инструменте.", "node_rarity": 1, "area": 3, "cooldown": "D", "duration_sec": 1200, "xp_reward": 55},
+    {"id": 504, "node_name": "Писательский крафт", "node_info": "Написать 300 слов свободного текста (фрирайтинг).", "node_rarity": 0, "area": 3, "cooldown": "D", "base_progress": 300, "xp_reward": 40},
+    {"id": 505, "node_name": "Шедевр в процессе", "node_info": "Крупный творческий проект (код, арт, трек).", "node_rarity": 3, "area": 3, "cooldown": "M", "duration_sec": 7200, "xp_reward": 500},
+
+    {"id": 601, "node_name": "Свой вызов", "node_info": "Кастомная ежедневная активность.", "node_rarity": 0, "area": 4, "cooldown": "D", "base_progress": 1, "xp_reward": 20},
+    {"id": 602, "node_name": "Глобальная цель", "node_info": "Кастомная сложная задача на неделю.", "node_rarity": 2, "area": 4, "cooldown": "W", "duration_sec": 3600, "xp_reward": 150}
+]

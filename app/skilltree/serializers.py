@@ -31,8 +31,8 @@ class TreeSerializer(serializers.ModelSerializer):
 class RegistrySerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields = ['username', 'email', 'password']
         extra_kwargs = {'password': {'write_only': True}}
         
     def create(self, validated_data):
-        return User.objects.create_user(validated_data)
+        return User.objects.create_user( **validated_data )

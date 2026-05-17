@@ -27,7 +27,7 @@ def registry_service(serializer) -> Response:
         except Exception as ex:
             return Response({"error": str(ex)}, status=status.HTTP_400_BAD_REQUEST)
     
-    return Response({"error": str(ex)}, status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
                 
 
 def login_service( request_data ) -> Response:

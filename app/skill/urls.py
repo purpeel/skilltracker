@@ -17,12 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import RedirectView
-from skilltree.views import login_view, register_view
+from skilltree.views import login_view, register_view, catalog_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='login/', permanent=False)),
     path('tree/', include('skilltree.urls')),
     path('login/', login_view, name='login'),
-    path('register/', register_view, name='register')
+    path('register/', register_view, name='register'),
+    path('catalog/', catalog_view, name='catalog')
 ]

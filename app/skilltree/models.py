@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 class User( AbstractUser ):
-    username = models.CharField( max_length=32, unique=True, blank=False, null=False )
+    username = models.CharField( max_length=120, unique=True, blank=False, null=False )
     created_at = models.DateField( auto_now_add=True )
     
     
@@ -24,13 +24,13 @@ class Tree( models.Model ):
     AREA_LANGUAGE = 2
     AREA_CREATIVITY = 3
     AREA_CUSTOM = 4
-    AREA_CHOICES = {
+    AREA_CHOICES = [
         (AREA_READING, "Reading"),
         (AREA_FITNESS, "Fitness"),
         (AREA_LANGUAGE, "Language"),
         (AREA_CREATIVITY, "Creativity"),
         (AREA_CUSTOM, "Custom"),
-    }
+    ]
     
     profile = models.ForeignKey( "Profile", on_delete=models.CASCADE, related_name='trees' )
     
@@ -75,33 +75,33 @@ class Node( models.Model ):
     DAILY = "D"
     WEEKLY = "W"
     MONTHLY = "M"
-    COOLDOWN_CHOICES = {
+    COOLDOWN_CHOICES = [
         (DAILY, "Daily"),
         (WEEKLY, "Weekly"),
         (MONTHLY, "Monthly"),
-    }
+    ]
     
     STATE_HIDDEN = 0
     STATE_REVEALED = 1
     STATE_ACTIVE = 2
     STATE_FINISHED = 3
-    STATE_CHOICES = {
+    STATE_CHOICES = [
         (STATE_HIDDEN, "Hidden"),
         (STATE_REVEALED, "Revealed"),
         (STATE_ACTIVE, "Active"),
         (STATE_FINISHED, "Finished"),
-    }
+    ]
     
     RARITY_COMMON = 0
     RARITY_RARE = 1
     RARITY_EPIC = 2
     RARITY_LEGENDARY = 3
-    RARITY_CHOICES = {
+    RARITY_CHOICES = [
         (RARITY_COMMON, "Common"),
         (RARITY_RARE, "Rare"),
         (RARITY_EPIC, "Epic"),
         (RARITY_LEGENDARY, "Legendary"),
-    }
+    ]
     
     tree = models.ForeignKey( "Tree", on_delete=models.CASCADE, related_name='nodes' )
     
